@@ -4,7 +4,7 @@
 
 Цель проекта - разработать модель нейронной сети для решения задачи бинарной классификации: отменит клиент бронирование или нет.
 
-Использован датасет "Hotel booking demand" с Kaggel: https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
+Использован датасет "Hotel booking demand" с Kaggle: https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
 
 Датасет содержит информацию о 119 390 бронированиях: тип отеля, статус, цена, количество гостей, тип депозита, дата заезда и другие признаки.
 
