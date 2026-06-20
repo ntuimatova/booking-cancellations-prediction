@@ -23,7 +23,6 @@ booking-cancellations-prediction/
 
 ### Запуск
 ```bash
-git clone https://github.com/ntuimatova/booking-cancellations-prediction.git
 cd booking-cancellations-prediction
 python -m venv venv
 venv\Scripts\activate          # Windows
