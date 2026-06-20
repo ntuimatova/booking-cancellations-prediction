@@ -1,14 +1,52 @@
-# Прогнозирование отмены бронирования отелей с помощью нейроных сетей
+# Booking Cancellations Prediction
 
-Цель проекта - разработать модель нейронной сети для решения задачи бинарной классификации: отменит клиент бронирование или нет.
+Бинарная классификация отмены бронирования отелей с помощью полносвязной нейронной сети.
 
-Использован датасет "Hotel booking demand" с Kaggle: https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
+Задача: по признакам бронирования предсказать, будет ли оно отменено (`is_canceled`: 0 — нет, 1 — да).
 
-Датасет содержит информацию о 119 390 бронированиях: тип отеля, статус, цена, количество гостей, тип депозита, дата заезда и другие признаки.
+### Данные
 
-#### Результаты и выводы:
-- Разведочный анализ данных (EDA) показал, что ключевые факторы отмены: 'lead_time' (время от бронирования до заезда) и 'deposit_type' (тип депозита)
-- Построена модель полносвязной нейронной сети (с архетиктурой 256-128-64-1: функция активации скрытых слоев relu, выходного слоя sigmoid; использованы BarchNormalization и Dropout)
-- Достигнута точность на тестовой выборке 83% (дальнейшее повышение точности ограничено случайным характером отмен - человеческим фактором, внешними обсоятельствами, не отраженными в данных)
+- **Источник:** [Hotel booking demand (Kaggle)](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand)
+- **Файл:** `hotel_bookings.csv`
+- **Размер:** 119 390 бронирований
+- **Признаки:** тип отеля, канал бронирования, lead time, тип депозита, количество гостей, цена, дата заезда и др.
+- **Целевая переменная:** `is_canceled`
 
-Модель может быть использована для оценки риска отмены бронирований при планировании загрузки отелей.
+### Структура проекта
+
+```
+booking-cancellations-prediction/
+├── hotel_booking_cancellations_prediction.ipynb
+├── hotel_bookings.csv
+└── README.md
+```
+
+### Запуск
+```bash
+git clone https://github.com/ntuimatova/booking-cancellations-prediction.git
+cd booking-cancellations-prediction
+python -m venv venv
+venv\Scripts\activate          # Windows
+pip install pandas numpy scikit-learn matplotlib seaborn tensorflow jupyter
+jupyter notebook hotel_booking_cancellations_prediction.ipynb
+```
+
+### Подход
+1) EDA: описательная статистика, анализ факторов отмены
+2) Подготовка данных: кодирование категориальных признаков, масштабирование
+3) Модель: полносвязная нейронная сеть (256 → 128 → 64 → 1), ReLU, sigmoid на выходе, BatchNormalization и Dropout
+4) Оценка: accuracy на тестовой выборке
+
+### Результаты
+- Test set: Accuracy - 83%
+- EDA показал, что на отмену сильнее всего влияют lead_time (время от бронирования до заезда) и deposit_type (тип депозита). Дальнейший рост точности ограничен случайным характером отмен — человеческим фактором и внешними обстоятельствами, не отражёнными в данных.
+- Модель может использоваться для оценки риска отмены при планировании загрузки отелей.
+
+### Стек
+Python, pandas, scikit-learn, TensorFlow/Keras, matplotlib, seaborn, Jupyter
+
+### Автор
+**Туйматова Надежда**
+
+- GitHub: https://github.com/ntuimatova
+- Email: n.tuimatova@yandex.ru
